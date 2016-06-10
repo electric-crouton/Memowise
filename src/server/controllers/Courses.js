@@ -125,6 +125,7 @@ const getDecksForCourse = (req, res) => {
         courseName: course.courseName,
         decks: decks
       };
+      
       res
         .status(200)
         .type('json')
