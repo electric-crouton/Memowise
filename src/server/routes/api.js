@@ -26,11 +26,10 @@ router.route('/api/last-play/deck/:deckId').get(auth.checkAuthServer, plays.find
  */
 router.route('/api/courses').post(auth.checkAuthServer, courses.addCourse);
 router.route('/api/courses').get(auth.checkAuthServer, courses.getCourses);
-router.route('/api/courses/:courseId/students').post(courses.addStudentToCourse); //auth.checkAuthServer, 
-router.route('/api/courses/:courseId/students').get(courses.getStudentsForCourse); //auth.checkAuthServer,
-router.route('/api/courses/:courseId/decks').post(courses.addDeckToCourse); //auth.checkAuthServer, 
-router.route('/api/courses/:courseId/decks').get(courses.getDecksForCourse); //auth.checkAuthServer,
-
+router.route('/api/courses/:courseId/students').post(auth.checkAuthServer, courses.addStudentToCourse);
+router.route('/api/courses/:courseId/students').get(auth.checkAuthServer, courses.getStudentsForCourse);
+router.route('/api/courses/:courseId/decks').post(auth.checkAuthServer, courses.addDeckToCourse);
+router.route('/api/courses/:courseId/decks').get(auth.checkAuthServer, courses.getDecksForCourse);
 /*
  * Auth
  */
