@@ -22,7 +22,7 @@ let AddStudent = ({ dispatch, courseId }) => {
           className="validate"
           type="text"
           id="student_email"/>
-          <label for="student_email">Student's email address</label>
+          <label for="student_email">Student&#39;s email address</label>
         </div>
         <button className="btn-large cyan lighten-3" type="submit">Add</button>
       </form>
