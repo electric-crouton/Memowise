@@ -75,8 +75,8 @@ export const receiveCourses = courses => ({ type: types.RECEIVE_COURSES, data: c
 export const selectCourse = course => ({ type: types.SELECT_COURSE, data: course });
 export const fetchCourses = () => (
   dispatch => (
-    fetch('/api/courses', {
-      credentials: 'same-origin',
+    fetch(`/api/courses`, {
+      credentials: 'same-origin'
     })
     .then(res => res.json())
     .then(courses => dispatch(receiveCourses(courses)))
@@ -87,7 +87,7 @@ export const addCourse = (courseName) => {
   const payload = JSON.stringify({ courseName });
 
   return dispatch => (
-    fetch('/api/courses', {
+    fetch(`/api/courses`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
