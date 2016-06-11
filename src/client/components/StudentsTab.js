@@ -6,6 +6,9 @@ import { receiveStudents, failedRequest } from '../actions'
 // import CourseTabs from './CourseTabs'
 
 const mapStateToProps = ({ students }) => ({ students });
+// function mapStateToProps(state, ownProps) {
+//   return { students: state.students[ownProps.courseId] }
+// }
 
 class StudentsTab extends React.Component {
   constructor(props) {
@@ -13,13 +16,13 @@ class StudentsTab extends React.Component {
 
   }
 
-  componentDidMount() {
-    return fetch(`/api/courses/${this.props.params.courseId}/students`, {
-      credentials: 'same-origin'
-    })
-    .then(res => res.json())
-    .then(students => this.props.dispatch(receiveStudents(students)))
-  }
+  // componentDidMount() {
+  //   return fetch(`/api/courses/${this.props.params.courseId}/students`, {
+  //     credentials: 'same-origin'
+  //   })
+  //   .then(res => res.json())
+  //   .then(students => this.props.dispatch(receiveStudents(students)))
+  // }
 
   render() {
     return (

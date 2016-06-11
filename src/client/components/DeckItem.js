@@ -35,6 +35,7 @@ class DeckItem extends Component {
 
   render() {
     return (
+      <div>
       <div className="card-item">
         <div className="card-panel hoverable">
           <div className="card-content">
@@ -50,6 +51,10 @@ class DeckItem extends Component {
             </div>
           </div>
         </div>
+      </div>
+      <div className="center">
+      <button className="btn cyan">Add Deck</button>
+      </div>
       </div>
     );
   }
