@@ -21,7 +21,7 @@ class CourseInfo extends React.Component {
 
   render() {
     return (
-        <div className="splashsubtitle center" onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
+        <div className="center" onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
     );
   }
 }

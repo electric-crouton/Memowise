@@ -24,13 +24,13 @@ class StudentsTab extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="splashtitle center">
+        <h1 className="center">
           {this.props.students.courseName}
         </h1>
         <AddStudent courseId={this.props.params.courseId} />
         <div>
           {this.props.students.students.map(student =>
-            <div className="splashsubtitle center">
+            <div className="center">
               <span>{student.name} {student.email}</span>
             </div>
           )}
