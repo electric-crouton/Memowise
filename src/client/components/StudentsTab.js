@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-// import ClassTabs from './ClassTabs';
 import AddStudent from '../containers/AddStudent';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { receiveStudents, failedRequest } from '../actions'
+// import CourseTabs from './CourseTabs'
 
 const mapStateToProps = ({ students }) => ({ students });
 
