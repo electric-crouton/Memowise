@@ -11,8 +11,8 @@ import setupPassport from './setupPassport';
 import homeRoute from './routes/home';
 import apiRoute from './routes/api';
 
-const host = 'localhost';
-const port = 3000;
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 
 setupPassport();
 

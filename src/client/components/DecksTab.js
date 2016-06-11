@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CourseTabs from './CourseTabs';
 import { receiveCourseDecks, receiveDecks, failedRequest } from '../actions'
 
-const mapStateToProps = ({ decks, courseDecks }) => ({ decks, courseDecks });
+const mapStateToProps = ({ decks }) => ({ decks });
 
 class DecksTab extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class DecksTab extends React.Component {
   componentWillMount() {
     console.log('inside componentWillMount in DecksTab');
     this.getPublicDecks();
-    this.getCourseDecks();
+    // this.getCourseDecks();
   }
 
   render() {
@@ -44,9 +44,7 @@ class DecksTab extends React.Component {
         </div>
         <hr />
         <div>
-          {this.props.courseDecks.decks.map(courseDeck => 
-            <div>{courseDeck.name}</div>
-          )}
+          
         </div>
       </div>
     );
