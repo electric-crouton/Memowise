@@ -21,12 +21,9 @@ class CourseInfo extends React.Component {
 
   render() {
     return (
-        <div onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
+        <div className="splashsubtitle center" onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
     );
   }
 }
 
 export default connect(null, mapDispatchToState)(CourseInfo);
-
-      // <div className="container">
-      //       </div>
