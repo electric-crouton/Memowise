@@ -27,7 +27,7 @@ class StudentsTab extends React.Component {
   render() {
     return (
       <div className="container">
-        <CourseTabs />
+        <CourseTabs courseId={this.props.params.courseId} />
         <h1>
           {this.props.students.courseName}
         </h1>
