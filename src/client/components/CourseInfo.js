@@ -21,9 +21,7 @@ class CourseInfo extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
-      </div>
+        <div className="center" onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
     );
   }
 }
