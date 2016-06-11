@@ -4,7 +4,7 @@ import DeckItem from './DeckItem';
 
 const Decks = ({ studentDecks }) => (
   <div className="container">
-    <h4 className="center grey-text text-darken-4">Decks</h4>
+    <h1 className="center grey-text text-darken-4">Decks</h1>
     <div className="card-list">
       <div className="card-row">
         {_.map(studentDecks, function (deckSet, key) {
