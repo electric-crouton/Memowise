@@ -3,7 +3,18 @@ import React from 'react';
 class DeckItemInCourse extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      decksInCourse: []
+    }
   }
+
+  // addDeckToCourse() {
+  //   const newDeckStack = this.state.decksInCourse.push(this.props.deck);
+  //   this.setState({
+  //     decksInCourse: newDeckStack
+  //   });
+  // }
 
   render() {
     return (

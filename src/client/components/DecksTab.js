@@ -6,18 +6,36 @@ import CourseTabs from './CourseTabs';
 
 const mapStateToProps = ({ decks }) => ({ decks });
 
-const DecksTab = ({ decks }) => {
+class DecksTab extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="container">
-      <CourseTabs />
-      <div>
-        {decks.map((deck, idx) => <DeckItemInCourse key={idx} deck={deck} />)}
+    this.state = {
+      decksInCourse: []
+    }
+  }
+
+  addDeckToCourse(deck) {
+    const newDeckStack = this.state.decksInCourse.push(deck);
+    this.setState({
+      decksInCourse: newDeckStack
+    });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <CourseTabs />
+        <div>
+          {decks.map((deck, idx) => 
+            <DeckItemInCourse key={idx} deck={deck} />)}
+        </div>
+        <hr />
+
       </div>
-      <hr />
+    );
+  }
 
-    </div>
-  );
 };
 
 export default connect(mapStateToProps)(DecksTab);
