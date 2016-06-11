@@ -1,34 +1,15 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400
-  },
-};
 
 const CourseTabs = () => (
-  <Tabs>
-    <Tab label="Students" >
-      <div>
-        <h2 style={styles.headline}>Students</h2>
-        <p>
-          This is an example tab.
-        </p>
-      </div>
-    </Tab>
-    <Tab label="Decks" >
-      <div>
-        <h2 style={styles.headline}>Decks</h2>
-        <p>
-          This is another example tab.
-        </p>
-      </div>
-    </Tab>
-  </Tabs>
+  <nav>
+    <div className="nav-wrapper teal lighten-2">
+      <a href="#" className="brand-logo right">Courses</a>
+      <ul className="left">
+        <li><a href="sass.html">Students</a></li>
+        <li><a href="badges.html">Decks</a></li>
+      </ul>
+    </div>  
+  </nav>
 );
 
 export default CourseTabs;

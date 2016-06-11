@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 // import ClassTabs from './ClassTabs';
-import DeckItem from './DeckItem';
+import DeckItemInCourse from './DeckItemInCourse';
 import { connect } from 'react-redux';
+import CourseTabs from './CourseTabs';
 
 const mapStateToProps = ({ decks }) => ({ decks });
 
@@ -9,15 +10,12 @@ const DecksTab = ({ decks }) => {
 
   return (
     <div className="container">
-      
-      <h4 className="center grey-text text-darken-4"> Decks </h4>
-      <div className="card-list">
-        <div className="card-columns">
-          {decks.map((deck, idx) => <DeckItem key={idx} deck={deck} />)}
-        </div>
+      <CourseTabs />
+      <div>
+        {decks.map((deck, idx) => <DeckItemInCourse key={idx} deck={deck} />)}
       </div>
       <hr />
-      
+
     </div>
   );
 };
