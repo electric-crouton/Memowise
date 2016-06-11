@@ -1,29 +1,14 @@
 import React from 'react';
+// import { addCourseDeck } from '../actions';
+import AddCourseDeck from '../containers/AddCourseDeck'
+// import { connect } from 'react-redux';
 
-class DeckItemInCourse extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      decksInCourse: []
-    }
-  }
-
-  // addDeckToCourse() {
-  //   const newDeckStack = this.state.decksInCourse.push(this.props.deck);
-  //   this.setState({
-  //     decksInCourse: newDeckStack
-  //   });
-  // }
-
-  render() {
-    return (
-      <span>
-        <strong><h4>{this.props.deck.name}</h4></strong>
-        <button className="btn cyan">Add Deck</button>
-      </span>
-    );
-  }
-}
+const DeckItemInCourse = ({ deck, courseId }) => (
+  <span>
+    <strong><h4>{deck.name}</h4></strong>
+    <AddCourseDeck deck={deck} courseId={courseId} />
+  </span>
+);
 
 export default DeckItemInCourse;
+// export default connect()(DeckItemInCourse);

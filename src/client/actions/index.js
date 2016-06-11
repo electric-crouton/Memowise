@@ -75,7 +75,7 @@ export const receiveCourses = courses => ({ type: types.RECEIVE_COURSES, data: c
 export const selectCourse = course => ({ type: types.SELECT_COURSE, data: course });
 export const fetchCourses = () => (
   dispatch => (
-    fetch(`/api/courses`, {
+    fetch('/api/courses', {
       credentials: 'same-origin'
     })
     .then(res => res.json())
@@ -87,7 +87,7 @@ export const addCourse = (courseName) => {
   const payload = JSON.stringify({ courseName });
 
   return dispatch => (
-    fetch(`/api/courses`, {
+    fetch('/api/courses', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -149,11 +149,34 @@ export const fetchStudentDecks = () => (
     .catch(err => dispatch(failedRequest(err)))
   ));
 
+export const receiveCourseDecks = courseDecks => ({ type: types.RECEIVE_COURSE_DECKS, data: courseDecks });
+export const fetchCourseDecks = (courseId) => {
 
+  return dispatch => (
+    fetch(`/api/courses/${courseId}/decks`, {
+      credentials: 'same-origin'
+    })
+    .then(res => res.json())
+    .then(courseDecks => dispatch(receiveCourseDecks(courseDecks)))
+    .catch(err => dispatch(failedRequest(err)))
+  );
+};
 
+export const addCourseDeck = (courseId, deckId) => {
+  const payload = JSON.stringify({ deckId });
 
-
-
-
-
-
+  return dispatch => (
+    fetch(`/api/courses/${courseId}/decks`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'Content-length': payload.length
+      },
+      credentials: 'same-origin',
+      body: payload
+    })
+    .then(() => dispatch({ type: types.ADD_COURSE_DECK, data: deckId }))
+    .then(() => dispatch(fetchCourseDecks(courseId)))
+    .catch(err => dispatch(failedRequest(err)))
+  );
+};

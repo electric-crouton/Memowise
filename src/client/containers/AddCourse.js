@@ -15,7 +15,7 @@ let AddCourse = ({ dispatch }) => {
         dispatch(addCourse(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
+        <input placeholder='Enter name of course' ref={node => {
           input = node
         }} />
         <button type="submit">Add Course</button>

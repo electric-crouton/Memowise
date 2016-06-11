@@ -16,6 +16,9 @@ export const SELECT_STUDENT_DECK = 'SELECT_STUDENT_DECK';
 export const RECEIVE_STUDENTS = 'RECEIVE_STUDENTS';
 export const ADD_STUDENT = 'ADD_STUDENT';
 
+export const RECEIVE_COURSE_DECKS = 'RECEIVE_COURSE_DECKS';
+export const ADD_COURSE_DECK = 'ADD_COURSE_DECK';
+
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
 

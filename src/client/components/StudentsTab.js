@@ -6,9 +6,6 @@ import { receiveStudents, failedRequest } from '../actions'
 import CourseTabs from './CourseTabs'
 
 const mapStateToProps = ({ students }) => ({ students });
-// function mapStateToProps(state, ownProps) {
-//   return { students: state.students[ownProps.courseId] }
-// }
 
 class StudentsTab extends React.Component {
   constructor(props) {
@@ -25,6 +22,13 @@ class StudentsTab extends React.Component {
   }
 
   render() {
+    // let studentsInCourse = this.props.students.students.map(student => (
+    //   <div>
+    //     <span>{student.name} {student.email}</span>
+    //   </div>
+    //   )
+    // );
+
     return (
       <div className="container">
         <CourseTabs courseId={this.props.params.courseId} />
@@ -33,11 +37,10 @@ class StudentsTab extends React.Component {
         </h1>
         <AddStudent courseId={this.props.params.courseId} />
         <div>
-          {this.props.students.students.map(student =>
-            <div>
-              <span>{student.name} {student.email}</span>
-            </div>
-          )}
+          {this.props.students.students.map(student => (
+          <div>
+            <span>{student.name} {student.email}</span>
+          </div>))}
         </div>
       </div>
     );
