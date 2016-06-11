@@ -10,7 +10,9 @@ import {
   ERR_FAILED_REQUEST,
   RECEIVE_COURSES,
   SELECT_COURSE,
-  RECEIVE_STUDENTS
+  RECEIVE_STUDENTS,
+  RECEIVE_STUDENT_DECKS,
+  SELECT_STUDENT_DECK
 } from '../constants/actionTypes';
 
 import {
@@ -128,5 +130,25 @@ export const students = (state, action) => {
     }
     default:
       return state || [];
+  }
+};
+
+export const studentDecks = (state, action) => {
+  switch (action.type) {
+    case RECEIVE_STUDENT_DECKS: {
+      return action.data || state;
+    }
+    default:
+      return state || [];
+  }
+};
+
+export const studentDeck = (state, action) => {
+  switch (action.type) {
+    case SELECT_STUDENT_DECK: {
+      return action.data || state;
+    }
+    default:
+      return state || {};
   }
 };

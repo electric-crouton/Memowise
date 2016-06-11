@@ -133,3 +133,27 @@ export const addStudent = (courseId, email) => {
     .catch(err => dispatch(failedRequest(err)))
   );
 };
+
+
+export const receiveStudentDecks = studentDecks => ({ type: types.RECEIVE_STUDENT_DECKS, data: studentDecks });
+export const selectStudentDeck = studentDeck => {
+  return { type: types.SELECT_STUDENT_DECK, data: studentDeck };
+}
+export const fetchStudentDecks = () => (
+  dispatch => (
+    fetch('/api/decks/courses', {
+      credentials: 'same-origin',
+    })
+    .then(res => res.json())
+    .then(studentDecks => dispatch(receiveStudentDecks(studentDecks)))
+    .catch(err => dispatch(failedRequest(err)))
+  ));
+
+
+
+
+
+
+
+
+
