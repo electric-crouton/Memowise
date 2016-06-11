@@ -21,11 +21,12 @@ class CourseInfo extends React.Component {
 
   render() {
     return (
-      <div className="container">
         <div onClick={this.handleCourseClick} >{this.props.course.courseName}</div>
-      </div>
     );
   }
 }
 
 export default connect(null, mapDispatchToState)(CourseInfo);
+
+      // <div className="container">
+      //       </div>
