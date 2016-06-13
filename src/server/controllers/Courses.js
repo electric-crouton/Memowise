@@ -101,7 +101,7 @@ const getStudentsForCourse = (req, res) => {
 const addDeckToCourse = (req, res) => {  
   Course.update(
     {_id:  req.params.courseId}, 
-    {$addToSet: {deckIds: req.body._id}}
+    {$addToSet: {deckIds: req.body.deckId}}
   ).then(course => {
     res.status(201).json(course);
   })
@@ -125,6 +125,7 @@ const getDecksForCourse = (req, res) => {
         courseName: course.courseName,
         decks: decks
       };
+      
       res
         .status(200)
         .type('json')

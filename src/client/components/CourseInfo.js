@@ -1,10 +1,11 @@
 import React from 'react';
-import { fetchStudents } from '../actions';
+import { fetchStudents, selectCourse } from '../actions';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 const mapDispatchToState = (dispatch) => ({
   fetchStudents: (courseId) => dispatch(fetchStudents(courseId)),
+  selectCourse: (course) => dispatch(selectCourse(course))
 });
 
 class CourseInfo extends React.Component {
@@ -15,6 +16,7 @@ class CourseInfo extends React.Component {
   }
 
   handleCourseClick() {
+    this.props.selectCourse(this.props.course);
     this.props.fetchStudents(this.props.course._id);
     browserHistory.push(`/courses/${this.props.course._id}/students`);
   }

@@ -12,7 +12,8 @@ import {
   SELECT_COURSE,
   RECEIVE_STUDENTS,
   RECEIVE_STUDENT_DECKS,
-  SELECT_STUDENT_DECK
+  SELECT_STUDENT_DECK,
+  RECEIVE_COURSE_DECKS
 } from '../constants/actionTypes';
 
 import {
@@ -141,6 +142,16 @@ export const studentDecks = (state, action) => {
     default:
       return state || [];
   }
+}
+
+export const courseDecks = (state, action) => {
+  switch (action.type) {
+    case RECEIVE_COURSE_DECKS: {
+      return action.data || state;
+    }
+    default:
+      return state || [];
+  }
 };
 
 export const studentDeck = (state, action) => {
@@ -152,3 +163,4 @@ export const studentDeck = (state, action) => {
       return state || {};
   }
 };
+

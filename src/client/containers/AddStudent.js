@@ -15,7 +15,7 @@ let AddStudent = ({ dispatch, courseId }) => {
         dispatch(addStudent(courseId, input.value))
         input.value = ''
       }}>
-        <input ref={node => {
+        <input placeholder='Enter email of student' ref={node => {
           input = node
         }} />
         <button type="submit">Add a Student</button>

@@ -1,16 +1,54 @@
 import React, { PropTypes } from 'react';
-// import ClassTabs from './ClassTabs';
+import DeckItemInCourse from './DeckItemInCourse';
+import { connect } from 'react-redux';
+import CourseTabs from './CourseTabs';
+import { receiveCourseDecks, receiveDecks, failedRequest } from '../actions'
 
-const DecksTab = ({ decks }) => {
+const mapStateToProps = ({ decks }) => ({ decks });
 
-  return (
-    <div className="container">
-      <button>Add a Deck</button>
-      <div>
-        {decks}
+class DecksTab extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  getCourseDecks() {
+    fetch(`/api/courses/${this.props.params.courseId}/decks`, {
+      credentials: 'same-origin'
+    })
+    .then(res => res.json())
+    .then(courseDecks => this.props.dispatch(receiveCourseDecks(courseDecks)))
+  }
+
+  getPublicDecks() {
+    fetch('/api/decks', {
+      credentials: 'same-origin',
+    })
+    .then(res => res.json())
+    .then(decks => this.props.dispatch(receiveDecks(decks)))
+  }
+
+  componentWillMount() {
+    this.getPublicDecks();
+    // this.getCourseDecks();
+  }
+
+  render() {
+    console.log('this.props.courseDecks: ', this.props.courseDecks);
+    return (
+      <div className="container">
+        <CourseTabs />
+        <div>
+          {this.props.decks.map((deck, idx) => 
+            <DeckItemInCourse key={idx} deck={deck} courseId={this.props.params.courseId} />)}
+        </div>
+        <hr />
+        <div>
+          
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 };
 
-export default DecksTab;
+export default connect(mapStateToProps)(DecksTab);
