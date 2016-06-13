@@ -28,7 +28,6 @@ class DecksTab extends React.Component {
   }
 
   componentWillMount() {
-    console.log('inside componentWillMount in DecksTab');
     this.getPublicDecks();
     // this.getCourseDecks();
   }

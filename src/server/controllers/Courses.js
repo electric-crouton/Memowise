@@ -99,9 +99,6 @@ const getStudentsForCourse = (req, res) => {
 };
 
 const addDeckToCourse = (req, res) => {  
-  console.log('inside addDeckToCourse>>');
-  console.log('req.body in addDeckToCourse: ', req.body);
-  console.log('req.params in addDeckToCourse: ', req.params);
   Course.update(
     {_id:  req.params.courseId}, 
     {$addToSet: {deckIds: req.body.deckId}}
@@ -117,7 +114,6 @@ const addDeckToCourse = (req, res) => {
 };
 
 const getDecksForCourse = (req, res) => { 
-  console.log('inside getDecksForCourse >>>');
   Course.findOne({_id: req.params.courseId})
   .then(course => {
     Deck.find(
