@@ -54,7 +54,7 @@ class CreateAccount extends React.Component {
   }
 
   handleError(err) {
-    Materialize.toast(`Failed to create account: ${err.responseJSON.message}`, 4000);
+    console.error(err);
   }
 
   createAccount(event) {

@@ -15,7 +15,7 @@ const getRandom = {
   },
 };
 
-// given a deck id, retrieve a card
+// given a deck id and a user id, retrieve a card
 const getCard = (deckId, userId) => (
   // get the deck
   queryDb().getDeck(deckId).then(deck => {

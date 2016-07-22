@@ -1,0 +1,16 @@
+#!/bin/bash
+#This script installs dependencies and imports data. Instructions for manually handling this process can be found in '/README.md'.
+
+echo "Installing production and development dependencies..."
+npm install
+
+echo "Building production server..."
+npm run build
+
+echo "Importing all decks..."
+npm run import:all
+
+echo "Running npm test..."
+npm run test
+
+echo "Done! Please see npm test results to resolve installation errors. To build and run development, production, or watch servers, type 'npm run server-dev', 'npm run server-prod', or 'npm run watch-server', respectively."

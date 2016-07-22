@@ -27,7 +27,8 @@ class SignIn extends React.Component {
 
   handleError(err) {
     // TODO: don't use global
-    Materialize.toast(err.responseJSON.message, 5000);
+    // Materialize.toast(err.responseJSON.message, 5000);
+    console.error(err);
   }
 
   signIn(e) {
